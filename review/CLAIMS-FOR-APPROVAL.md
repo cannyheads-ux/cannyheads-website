@@ -89,3 +89,6 @@ Read-only snapshot: **19 October 2026, 11:05:25 IST**.
 - Print proof: A3 297×420mm trim; 3mm bleed; outer crop-mark area gives 309×432mm media; 17mm content margins. Single pages, not imposed printer spreads.
 - Output uses RGB colour and embedded browser fonts. It is not certified PDF/X or a CMYK press profile; the printer should confirm their colour/imposition requirements.
 - Both PDFs are approval proofs; do not print until copy/counts/photos are confirmed.
+
+
+Photo refresh, 19 October 2026: both covers use the owner-uploaded office artwork; page 12 uses the supplied Venkat / Founder & CEO portrait; pages 13–14 include four owner-uploaded event photographs alongside labelled existing illustrations. The founder background upload is retained privately as a reference, rather than printing its small embedded biography text. Uploaded derivatives range from 502–1101 pixels wide; higher-resolution originals are recommended for sharper printing. No celebrity endorsement is claimed.
