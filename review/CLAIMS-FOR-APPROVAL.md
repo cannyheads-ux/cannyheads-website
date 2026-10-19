@@ -6,17 +6,28 @@ Status: PREVIEW ONLY. No permission to print or deploy has been assumed.
 
 Read-only snapshot: **19 October 2026, 11:05:25 IST**.
 
-- 2,355 Open/Active job listings with no elapsed explicit deadline → brochure says **2,300+ open / unexpired listings**.
-- 2,864 candidate profiles excluding profiles marked Inactive and names starting test/testing/demo/dummy/sample → **2,800+ candidate profiles**. This is a profile count, not a claim that every person is verified, active today or available to join.
+- 2,355 Open/Active job listings with no elapsed explicit deadline → previous proof said **2,300+ open / unexpired listings**; removed from revised print copy.
+- 2,864 candidate profiles excluding profiles marked Inactive and names starting test/testing/demo/dummy/sample → previous proof said **2,800+ candidate profiles**; removed from revised print copy. This is a profile count, not a claim that every person is verified, active today or available to join.
 - Employer profiles excluding Bigshopes/test-like company names: 5,212. **Not advertised**: imported employer records should not be presented as paying or verified employers.
 - Job totals include separate listings, not a promise of distinct employers or deduplicated vacancies. Final count wording requires approval before printing.
+
+## Revised print wording — 19 October owner feedback
+
+- Cover/footer now list **Thanjavur · Coimbatore, Tamil Nadu**. No unprovided Coimbatore street address is invented.
+- Larger individual business names and a prominent **WhatsApp STAFF to 72008 24009** callout.
+- The requested **1.00 lakh job listings / 1.50 lakh candidate profiles** are displayed explicitly as **growth targets**, not current counts. Owner's choice of targets vs verified counts is awaiting confirmation; do not remove that qualification or represent them as current stock.
+- Free-credit / first-five promotional copy removed from the brochure and redesigned company website. Actual GetJobMe allowances and billing remain unchanged.
+- Nine existing BigShopes catalogue images appear in a 3×3 grid. Source images are 768×768 and used small enough for print; they are examples, not a guarantee of inventory.
+- Savings highlight: **daily UPI AutoPay**, with mandate/setup requirements. **Ask about weekly payment options** is an enquiry, not a claim that weekly AutoPay is live. Code inspected supports daily debits; weekly status awaiting owner confirmation.
+- PrimeGold feature added from the owner's 19 October statement: configurable customer EMI repayment tenures **3, 6, 8 and 11 months**. This describes software features, not lending by Canny Heads. No claim that these features were built or tested in the loan software during this brochure work.
+- Real event photos have not yet been received. Existing labelled illustrations/placeholders retained; not ready for final event-photo approval.
 
 ## GetJobMe
 
 - Candidates: 100% free registration, job search and applications; no candidate purchase offer.
 - Employers: free registration and unlimited free jobs. “2 minutes” job-posting wording is the owner's supplied flow claim.
 - Role + location matching; profiles/photo/available voice introduction; WhatsApp/email matching alerts. Existing consent, daily caps and availability still apply.
-- First 5 applicants' contacts free; 5 free candidate-database views; subsequent contacts through the existing paid unlock.
+- The existing first-applicant/database allowances are unchanged in the portal; the revised marketing copy does not promote free credits.
 - Credits purchased in ₹500 steps, from ₹500 + 18% GST to ₹10,000 + 18% GST.
 - ₹500–₹1,500: 35 contacts per ₹500, 30 days.
 - ₹2,000–₹4,500: 40 contacts per ₹500, 45 days.
@@ -33,7 +44,7 @@ Read-only snapshot: **19 October 2026, 11:05:25 IST**.
 
 - Multi-vendor marketplace across product categories.
 - Online jewellery store/catalogue free; enquiries go directly to jeweller; no commission on those enquiries.
-- Optional daily/monthly Gold Savings Scheme: platform fee applies; no price advertised. Customer payments to jeweller's own Razorpay account; WhatsApp reminders available.
+- Optional Gold Savings Scheme: platform fee applies; no price advertised. Daily UPI AutoPay subject to setup/mandate; ask about weekly payments. Customer payments to jeweller's own Razorpay account; WhatsApp reminders available.
 - General sellers join through Become a Vendor. Thangamalai is the group's brand/example store, not a fifth main business.
 
 ## Training — important confirmation
