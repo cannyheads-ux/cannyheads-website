@@ -1,0 +1,17 @@
+[Unit]
+Description=Canny Heads private photo review inbox (no messaging or database)
+After=network.target
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/root/cannyheads-redesign
+Environment=PORT=4183
+ExecStart=/usr/bin/node /root/cannyheads-redesign/tools/private-photo-inbox.mjs
+Restart=on-failure
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ReadWritePaths=/root/cannyheads-redesign/review-inbox
+[Install]
+WantedBy=multi-user.target

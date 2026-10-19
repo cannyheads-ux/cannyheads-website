@@ -48,10 +48,10 @@ export const jewelleryItems = [
     "height": 768
   },
   {
-    "code": "TN-NOS-001",
-    "label": "Nose stud",
-    "src": "/jewellery/TN-NOS-001.webp",
-    "source": "https://bigshopes.com/storage/jewellery/TN-NOS-001.jpg",
+    "code": "TN-BNG-029",
+    "label": "Anklet designs",
+    "src": "/jewellery/TN-BNG-029.webp",
+    "source": "https://bigshopes.com/storage/jewellery/TN-BNG-029.jpg",
     "width": 768,
     "height": 768
   },

@@ -8,3 +8,5 @@ site/node_modules/
 brochure/out/
 review/*.png
 review/training-mock-payment.png
+
+review-inbox/

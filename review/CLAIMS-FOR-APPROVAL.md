@@ -1,3 +1,17 @@
+# Latest review — A5 revision, 19 October 2026
+
+- Format is now **A5, 148 × 210 mm, 16 pages**, with 3 mm bleed and 160 × 222 mm outer crop area. Sixteen pages keep the expanded contact/QR content readable and remain a multiple of four for booklet printing. This replaces the earlier 12-page A3 proof.
+- New name: **PrimeGold – Gold Loan Software Solutions**.
+- Each business section ends with its enquiry description and **72008 24009**.
+- Larger QR codes, mostly 37 mm; contact-page QR codes 35 mm. All generated locally.
+- Cover and back use a hand-drawn **corporate office concept illustration**, with the Canny Heads logo and CANNY HEADS CONSULTING / GET JOB ME signage. It is not represented as a photo of the actual office. No paid image generator was used.
+- The unclear nose-stud image is replaced with a clearly visible **anklet design** from the existing catalogue; no false nose-stud caption.
+- Owner explicitly authorised **93456 24009 for WhatsApp VENDOR enquiries** in BigShopes and the contact page on 19 October. This is a narrow exception to the earlier internal-number restriction. It does not claim that a VENDOR bot or automatic registration flow has been implemented.
+- The new private photo-upload page is behind the review login. Photos go to an isolated private file inbox, not MongoDB or the public site. Permanent GetJobMe gallery admin is built but still awaits deployment approval.
+- Lakh figures remain explicitly **growth targets**. Weekly AutoPay remains unverified and is described as an enquiry option. Other pricing/fee confirmations below remain applicable.
+
+---
+
 # Canny Heads — copy and claims for approval
 
 Status: PREVIEW ONLY. No permission to print or deploy has been assumed.

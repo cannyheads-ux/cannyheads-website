@@ -1,3 +1,17 @@
+# Current review: A5, 16 pages
+
+The current `npm run brochure` generates **canny-heads-brochure-A5-screen.pdf** and **canny-heads-brochure-A5-print.pdf**, plus page-01.png through page-16.png. A3 generation is archived as `brochure/build-A3-archive.mjs` and is not the current deliverable.
+
+A private owner photo uploader is running at the password-protected review URL plus `upload.html`. The isolated `cannyheads-review-upload.service` serves only the private photo inbox on localhost:4183. It imports no GetJobMe server or models, uses no MongoDB and sends no notifications. It reuses the existing pure upload validator and sharp image processing. New photos remain private under `review-inbox/`, excluded from git. Metadata is backed up before changes. Permanent GetJobMe gallery admin still requires its separately approved deployment.
+
+The A5 brochure rebuild prioritises active private-inbox photos and published public gallery photos, then fills remaining slots with clearly labelled business illustrations/placeholders. Uploading does not itself publish or automatically rebuild the PDF; run the brochure build and review/update the proofs after selecting photos.
+
+Updated name and number policy: PrimeGold – Gold Loan Software Solutions. As explicitly requested on 19 October, 93456 24009 is permitted for VENDOR enquiries in BigShopes/contact material only. Do not use it elsewhere or claim an automated VENDOR bot exists.
+
+The older preparation notes below describe the original A3 version and remain useful for deployment safeguards.
+
+---
+
 # Canny Heads redesign — preview, not deployed
 
 All new work is under this folder. GetJobMe gallery source is in `/root/getjobme-wt-gallery`, branch `feature/cannyheads-gallery`, based on `fa6afcd`. Do not start GetJobMe server.js here or in that worktree.
