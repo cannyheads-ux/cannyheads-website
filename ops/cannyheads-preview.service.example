@@ -1,0 +1,13 @@
+# TEMPLATE ONLY — not installed.
+[Unit]
+Description=Canny Heads isolated private preview
+After=network.target
+[Service]
+Type=simple
+WorkingDirectory=/root/cannyheads-redesign/site
+Environment=PORT=4181
+Environment=PREVIEW=true
+ExecStart=/usr/bin/node /root/cannyheads-redesign/site/server.mjs
+Restart=on-failure
+[Install]
+WantedBy=multi-user.target

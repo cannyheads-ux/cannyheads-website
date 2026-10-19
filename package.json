@@ -1,0 +1,24 @@
+{
+  "name": "cannyheads-redesign",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm --prefix site run build",
+    "brochure": "node brochure/build.mjs",
+    "preview": "PREVIEW=true PORT=4181 node site/server.mjs",
+    "test": "node review/check-site.mjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "astro": "^7.4.0",
+    "pdf-lib": "^1.17.1",
+    "playwright": "^1.64.1",
+    "qrcode": "^1.5.4",
+    "sharp": "^0.35.5"
+  },
+  "private": true,
+  "type": "module"
+}

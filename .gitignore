@@ -1,0 +1,10 @@
+node_modules/
+review/*.html
+review/*credential*
+review/*.json
+site/dist/
+site/.astro/
+site/node_modules/
+brochure/out/
+review/*.png
+review/training-mock-payment.png
