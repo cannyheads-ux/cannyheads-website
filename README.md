@@ -73,3 +73,5 @@ systemctl restart cannyheads
 ```
 
 Before using rollback, confirm current.rollback does not already exist. No rollback or deployment command has been run during preview preparation.
+
+Private-preview safety: with PREVIEW=true, a notice and capture guard prevent real training form/payment submissions. Only the intercepted browser test sets CANNYHEADS_MOCK_FORM_TEST=true. Never set that variable on an owner-facing preview. The two preserved training assets remain byte-for-byte unchanged.

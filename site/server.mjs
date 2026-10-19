@@ -72,5 +72,10 @@ http.createServer(async(req,res)=>{try{
  let data;try{data=await fs.readFile(candidate);}catch{res.writeHead(404,{'Content-Type':'text/plain'});return res.end('Page not found');}
  const type=mime[path.extname(candidate)]||'application/octet-stream';
  let response=new Response(data,{headers:{'content-type':type,'X-Content-Type-Options':'nosniff','Cache-Control':type.startsWith('text/html')?'no-cache':'public,max-age=3600'}});
- response=await withGoldAppraiserLeadCapture(response,req.method);response=await withGoogleTagManager(response,req.method);await sendResponse(res,response,req.method);
+ response=await withGoldAppraiserLeadCapture(response,req.method);response=await withGoogleTagManager(response,req.method);
+ if(process.env.PREVIEW==='true'&&String(response.headers.get('content-type')).includes('text/html')&&process.env.CANNYHEADS_MOCK_FORM_TEST!=='true'){
+   const notice='<aside style="padding:12px 5%;background:#174A7E;color:white;font:14px Arial" role="status">Private preview: training enquiry/payment submission is disabled. No real lead will be sent.</aside><script>document.addEventListener("submit",function(event){if(event.target.id==="gold-appraiser-lead-form"){event.preventDefault();event.stopImmediatePropagation();var status=event.target.querySelector(".gjm-lead-status");if(status)status.textContent="Preview only: no enquiry was sent. The preserved live form was tested separately with mocked responses.";}},true);document.addEventListener("click",function(event){if(event.target.closest(".gjm-booking-pay")){event.preventDefault();event.stopImmediatePropagation();}},true);</script>';
+   response=new Response((await response.text()).replace(/<body([^>]*)>/i,'<body$1>'+notice),{status:response.status,headers:response.headers});
+ }
+ await sendResponse(res,response,req.method);
 }catch(error){console.error(error.message);res.writeHead(500);res.end('Unable to load page');}}).listen(port,'127.0.0.1',()=>console.log('Canny Heads preview listening on '+port));

@@ -7,7 +7,8 @@
     "build": "npm --prefix site run build",
     "brochure": "node brochure/build.mjs",
     "preview": "PREVIEW=true PORT=4181 node site/server.mjs",
-    "test": "node review/check-site.mjs"
+    "test": "node review/check-site.mjs",
+    "counts": "node review/refresh-counts.mjs"
   },
   "keywords": [],
   "author": "",

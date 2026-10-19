@@ -3,7 +3,7 @@ import fs from 'node:fs/promises';
 import assert from 'node:assert/strict';
 import {createRequire} from 'node:module';
 const require=createRequire('/root/cannyheads-redesign/package.json');const {chromium}=require('playwright');
-const root='/root/cannyheads-redesign';const preview=spawn(process.execPath,[root+'/site/server.mjs'],{env:{...process.env,PREVIEW:'true',PORT:'4181'},stdio:'ignore'});await new Promise(r=>setTimeout(r,500));const browser=await chromium.launch({args:['--no-sandbox']});
+const root='/root/cannyheads-redesign';const preview=spawn(process.execPath,[root+'/site/server.mjs'],{env:{...process.env,PREVIEW:'true',PORT:'4181',CANNYHEADS_MOCK_FORM_TEST:'true'},stdio:'ignore'});await new Promise(r=>setTimeout(r,500));const browser=await chromium.launch({args:['--no-sandbox']});
 const paths=['/','/about','/businesses','/businesses/getjobme','/businesses/bigshopes','/businesses/gold-appraiser-training','/businesses/prime-gold-software','/businesses/thangamalai-jewellers','/consulting','/gallery','/contact'];
 const errors=[],results=[],externalRequests=[];let mockLeadCalls=0,mockOrderCalls=0;
 const gallery=[{id:'1',title:'Workshop preview',caption:'Mock fixture for layout testing only',eventDate:'2026-10-19T06:30:00Z',business:'training',imageUrl:'/api/upload/file/222222222222222222222222'}];
