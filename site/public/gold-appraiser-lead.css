@@ -6,7 +6,9 @@
 .gjm-lead-shell {
   display: grid;
   grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
-  gap: clamp(2rem, 6vw, 5rem);
+  grid-template-areas: "copy form" "details form";
+  column-gap: clamp(2rem, 6vw, 5rem);
+  row-gap: 1.5rem;
   align-items: start;
   width: min(1120px, 100%);
   margin: 0 auto;
@@ -143,7 +145,25 @@
 }
 .gjm-lead-honeypot { position: absolute !important; left: -10000px !important; width: 1px !important; height: 1px !important; overflow: hidden !important; }
 @media (max-width: 760px) {
-  .gjm-lead-shell { grid-template-columns: 1fr; }
+  .gjm-lead-section { padding-top: 1.75rem; }
+  .gjm-lead-shell { grid-template-columns: 1fr; grid-template-areas: "copy" "form" "details"; }
+  .gjm-lead-copy h2 { font-size: 2.1rem; margin: .5rem 0 .6rem; }
+  .gjm-lead-chips { margin: .9rem 0; }
   .gjm-lead-grid { grid-template-columns: 1fr; }
   .gjm-lead-field--full { grid-column: auto; }
 }
+
+.gjm-lead-copy { grid-area: copy; }
+.gjm-lead-card { grid-area: form; }
+.gjm-lead-details { grid-area: details; }
+.gjm-lead-details p { color: #40534f; line-height: 1.7; max-width: 34rem; }
+.gjm-lead-tamil { font-weight: 700; color: #6f4100 !important; margin: 0 0 .25rem; }
+.gjm-lead-chips { display: flex; flex-wrap: wrap; gap: .5rem; margin: 1.25rem 0; padding: 0; list-style: none; }
+.gjm-lead-chips li { background: #fff; border: 1px solid rgba(165,107,18,.35); border-radius: 999px; padding: .4rem .8rem; font-size: .88rem; font-weight: 700; color: #4a3209; }
+.gjm-lead-chips li::before { content: '✓ '; color: #a56b12; }
+.gjm-lead-whatsapp { display: grid; gap: .1rem; width: fit-content; max-width: 100%; background: #1f9d55; color: #fff; text-decoration: none; border-radius: .9rem; padding: .75rem 1.2rem; box-shadow: 0 10px 24px rgba(31,157,85,.25); }
+.gjm-lead-whatsapp span { font-size: .8rem; opacity: .9; }
+.gjm-lead-whatsapp strong { font-size: 1.1rem; }
+.gjm-lead-whatsapp:hover { background: #188046; }
+.gjm-lead-or { margin: .9rem 0 0 !important; font-weight: 700; color: #263c38 !important; }
+.gjm-lead-small { font-size: .85rem; }

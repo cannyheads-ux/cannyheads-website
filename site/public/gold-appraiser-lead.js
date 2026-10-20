@@ -15,19 +15,20 @@
     section.innerHTML = `
       <div class="gjm-lead-shell">
         <div class="gjm-lead-copy">
-          <span class="gjm-lead-kicker">Training enquiry</span>
-          <h2>Interested in the next Gold Appraiser batch?</h2>
-          <div class="gjm-lead-booking-offer">
-            <strong>Submit your enquiry today and reserve your seat with a ₹999 booking advance to avail the special offer.</strong>
-            <span lang="ta">இன்றே உங்கள் விவரங்களைச் சமர்ப்பித்து, ₹999 முன்பணம் செலுத்தி சிறப்புச் சலுகையில் உங்கள் இடத்தை முன்பதிவு செய்யுங்கள்.</span>
-          </div>
-          <p>Share your details and the Canny Heads team will contact you with the next Thanjavur batch schedule, practical-session details and the current special offer.</p>
-          <p lang="ta">அடுத்த பயிற்சி Batch விவரங்களைப் பெற உங்கள் பெயர் மற்றும் WhatsApp எண்ணைப் பதிவு செய்யுங்கள்.</p>
-          <ul class="gjm-lead-points">
-            <li>Online theory guidance</li>
-            <li>One-day practical training in Thanjavur</li>
-            <li>Special offer fee ₹5,000</li>
+          <span class="gjm-lead-kicker">PrimeGold Academy · Thanjavur</span>
+          <h2>Become a Gold Appraiser in 7 days</h2>
+          <p class="gjm-lead-tamil" lang="ta">7 நாளில் தங்க மதிப்பீட்டாளர் ஆகுங்கள் – அடுத்த Batch-ல் இடம் பெறுங்கள்.</p>
+          <ul class="gjm-lead-chips">
+            <li>6 days theory (online) + 1 day practical</li>
+            <li>Certificate on completion</li>
+            <li>Special offer ₹5,000 + GST</li>
+            <li>Job help through GetJobMe</li>
           </ul>
+          <a class="gjm-lead-whatsapp" href="https://wa.me/917200824009?text=GOLD" target="_blank" rel="noopener">
+            <span>Quick reply on WhatsApp</span>
+            <strong>Send GOLD to 72008 24009</strong>
+          </a>
+          <p class="gjm-lead-or">or fill the 1-minute form 👇</p>
         </div>
         <form class="gjm-lead-card" id="gold-appraiser-lead-form" novalidate>
           <div class="gjm-lead-grid">
@@ -74,6 +75,15 @@
           </div>
           <p class="gjm-lead-note">Submitting an enquiry is free. After submission, you may securely pay the optional ₹999 booking advance through Razorpay to reserve your seat. Your details are used only for training follow-up.</p>
         </form>
+        <div class="gjm-lead-details">
+          <div class="gjm-lead-booking-offer">
+            <strong>Reserve your seat with a ₹999 booking advance to avail the special offer.</strong>
+            <span lang="ta">₹999 முன்பணம் செலுத்தி சிறப்புச் சலுகையில் உங்கள் இடத்தை முன்பதிவு செய்யுங்கள்.</span>
+          </div>
+          <p>Share your details and the Canny Heads team will contact you with the next Thanjavur batch schedule, practical-session details and the current special offer.</p>
+          <p lang="ta">அடுத்த பயிற்சி Batch விவரங்களைப் பெற உங்கள் பெயர் மற்றும் WhatsApp எண்ணைப் பதிவு செய்யுங்கள்.</p>
+          <p class="gjm-lead-small">Training builds career readiness for jewellery and gold-loan roles; placement is not guaranteed.</p>
+        </div>
       </div>`;
     main.prepend(section);
 
@@ -85,6 +95,11 @@
           section.scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
       }
+    });
+
+    section.querySelector('.gjm-lead-whatsapp').addEventListener('click', () => {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: 'gold_appraiser_whatsapp_click', lead_source: new URLSearchParams(window.location.search).get('utm_source') || 'website' });
     });
 
     const form = section.querySelector('#gold-appraiser-lead-form');
