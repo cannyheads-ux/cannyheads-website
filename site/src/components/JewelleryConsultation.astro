@@ -1,0 +1,39 @@
+---
+// /jewellery-consultation: end-to-end consultation for retail jewellers.
+// IMAGE PLACEHOLDERS live in /public/jewellery-consultation/*-placeholder.svg;
+// replace each with the real photo (same name, .webp/.jpg) and update the src below.
+const wa='https://wa.me/917200824009?text='+encodeURIComponent('Hello Canny Heads, I would like a jewellery business consultation.');
+const groups=[
+ {id:'store-setup',title:'New store setup',lead:'Start right: the location, the paperwork and the showroom itself.',image:'setup',items:[
+  ['Location evaluation','We identify and assess the right location for your new showroom: catchment, footfall, competition and visibility.'],
+  ['Licensing & statutory formalities','Building and premises licensing and every permit required to start a jewellery business, handled in the right order.'],
+  ['Showroom setup','Layout, counters, display, lighting and security planned for how jewellery is actually sold.']]},
+ {id:'pre-launch',title:'Pre-launch marketing',lead:'Customers should know your name before the doors open.',items:[
+  ['Pre-opening campaigns','Marketing activities that build awareness and drive walk-ins before launch.'],
+  ['Launch planning','Opening-day plan, offers, invitations and store opening activities.']]},
+ {id:'manpower',title:'Manpower recruitment & training',lead:'The right people, trained to sell with confidence.',image:'team',items:[
+  ['Showroom staff recruitment','Sales staff, cashiers and supervisors hired for your showroom.'],
+  ['Product knowledge training','Gold, diamond and silver product knowledge your team can explain to customers.'],
+  ['Selling skills training','Greeting, presenting, handling objections and closing the sale.']]},
+ {id:'sops',title:'Process & SOPs',lead:'Clear systems so the showroom runs the same way every day.',items:[
+  ['Complete showroom SOPs','Standard operating procedures for jewellery retail, from opening to closing.'],
+  ['Staff uniforms','A uniform plan that fits your brand.'],
+  ['Payroll & statutory compliance','Payroll system, ESI, PF and other statutory requirements set up correctly.']]},
+ {id:'running',title:'Running-business support',lead:'Ongoing help to grow sales after the launch.',image:'growth',items:[
+  ['Day-to-day marketing','Regular local marketing activities that keep customers coming in.'],
+  ['Social media promotions','Instagram and YouTube reels created for your showroom.'],
+  ['Website SEO','Website optimisation so local customers find you on Google.'],
+  ['Merchandise planning','The right merchandise mix for your target customers and store location.'],
+  ['Records & software','Record systems and jewellery software set up for your operations.'],
+  ['Tele-calling systems','Structured customer follow-up and tele-calling routines.']]}];
+---
+<section class="jc-hero"><div class="wrap jc-hero-grid"><div><p class="kicker">Jewellery Business Consultation</p><h1>Expert jewellery retail business consultation.</h1><p class="intro">Backed by <b>20+ years of hands-on experience</b> in jewellery retail: complete end-to-end support, from store setup to daily running operations.</p><div class="actions"><a class="button jc-wa" href={wa}>WhatsApp us ↗</a><a class="button secondary" href="tel:+917200824009">Call 72008 24009</a><a class="text-link" href="#jc-enquiry">Send an enquiry ↓</a></div><ul class="jc-proof"><li><strong>20+</strong><span>years in jewellery retail</span></li><li><strong>5</strong><span>areas of support</span></li><li><strong>1</strong><span>partner, start to finish</span></li></ul></div><figure><!-- IMAGE PLACEHOLDER: hero (showroom photo) --><img src="/jewellery-consultation/hero-placeholder.svg" alt="Jewellery showroom" width="1200" height="1000" fetchpriority="high" data-placeholder="hero"/></figure></div></section>
+
+<nav class="wrap jc-index" aria-label="Services on this page">{groups.map((g,i)=><a href={'#'+g.id}><span>0{i+1}</span>{g.title}</a>)}</nav>
+
+{groups.map((g,i)=><section id={g.id} class={'jc-group'+(i%2?' band':'')}><div class={'wrap'+(g.image?' jc-split'+(i%4===2?' flip':''):'')}><div><p class="kicker">Service 0{i+1}</p><h2>{g.title}</h2><p class="jc-lead">{g.lead}</p><div class={'jc-items'+(g.image?'':' wide')}>{g.items.map(([t,d])=><article><h3>{t}</h3><p>{d}</p></article>)}</div></div>{g.image&&<figure class="jc-photo"><!-- IMAGE PLACEHOLDER: section photo --><img src={'/jewellery-consultation/'+g.image+'-placeholder.svg'} alt={g.title} width="900" height="600" loading="lazy" data-placeholder={g.image}/></figure>}</div></section>)}
+
+<section class="wrap section jc-about"><figure><!-- IMAGE PLACEHOLDER: founder / profile photo --><img src="/jewellery-consultation/founder-placeholder.svg" alt="Founder, Canny Heads Consulting" width="800" height="1000" loading="lazy" data-placeholder="founder"/></figure><div><p class="kicker">About · Why us</p><h2>Real experience from the showroom floor.</h2><p>For more than 20 years we have worked inside jewellery retail: opening stores, hiring and training sales teams, running daily operations and growing sales. This is practical advice from people who have done the job, not theory.</p><ul class="jc-why"><li><b>End-to-end:</b> one partner from choosing the location to running the store every day.</li><li><b>Jewellery-specific:</b> product knowledge, selling, merchandise and compliance made for jewellery retail.</li><li><b>Hands-on:</b> we set up the systems, train your people and stay with you after the launch.</li><li><b>Connected:</b> recruitment through GetJobMe, gold appraiser training through PrimeGold Academy and your online store on BigShopes.</li></ul><p class="small">Offices in Thanjavur and Coimbatore, Tamil Nadu.</p></div></section>
+
+<section id="jc-enquiry" class="jc-cta"><div class="wrap jc-split"><div><p class="kicker">Start the conversation</p><h2>Planning a new showroom or growing an existing one?</h2><p>Tell us a little about your business. We will call you back to understand your needs.</p><p class="jc-contact"><a href={wa}>WhatsApp 72008 24009 ↗</a><a href="tel:+917200824009">Call +91 72008 24009</a><a href="tel:+919500936499">Call +91 95009 36499</a><a href="mailto:info@cannyheads.com?subject=Jewellery%20business%20consultation">info@cannyheads.com</a></p></div><form class="jc-form" data-jc-form><label>Your name<input name="name" required autocomplete="name"/></label><label>Mobile number<input name="mobile" required inputmode="tel" autocomplete="tel" pattern="[0-9+ ]{10,15}"/></label><label>Showroom name & city<input name="business" required/></label><label>You are<select name="stage"><option>Planning a new jewellery showroom</option><option>Running a jewellery showroom</option></select></label><label>What do you need help with? (optional)<textarea name="message" rows="3"></textarea></label><button class="button" type="submit">Send enquiry on WhatsApp ↗</button><p class="small">Opens WhatsApp with your details filled in. Just press send.</p></form></div></section>
+<script is:inline src="/jewellery-consultation.js" defer></script>
