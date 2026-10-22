@@ -82,7 +82,7 @@
           </div>
           <p>Share your details and the Canny Heads team will contact you with the next Thanjavur batch schedule, practical-session details and the current special offer.</p>
           <p lang="ta">அடுத்த பயிற்சி Batch விவரங்களைப் பெற உங்கள் பெயர் மற்றும் WhatsApp எண்ணைப் பதிவு செய்யுங்கள்.</p>
-          <p class="gjm-lead-small">Training builds career readiness for jewellery and gold-loan roles; placement is not guaranteed.</p>
+          <p class="gjm-lead-small">Training builds career readiness for jewellery and gold-loan roles; through GetJobMe we find suitable employers and arrange interviews for you to get placed.</p>
         </div>
       </div>`;
     main.prepend(section);
