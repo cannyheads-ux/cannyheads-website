@@ -236,3 +236,93 @@ body.print .tl{top:1mm;left:1mm;border-right-width:.15mm;border-bottom-width:.15
 body.print .tr{top:1mm;right:1mm;border-left-width:.15mm;border-bottom-width:.15mm}
 body.print .bl{bottom:1mm;left:1mm;border-right-width:.15mm;border-top-width:.15mm}
 body.print .br{bottom:1mm;right:1mm;border-left-width:.15mm;border-top-width:.15mm}
+
+/* ---------- 12-page compact edition (22 Oct 2026) ---------- */
+.cover-businesses>div:nth-child(5){--tile:linear-gradient(120deg,#4A2A7A,#8A5CC4);grid-column:1/-1}
+.cover-building{height:100mm}
+.lead{font-size:11.5px;line-height:1.5}
+.about .glance{grid-template-columns:1fr 1fr;gap:2.5mm}
+.about .glance article{min-height:0;padding:2.8mm 3.2mm}
+.about .glance h3{font-size:16px;margin-bottom:1.2mm}
+.about .glance ul{font-size:9px;line-height:1.35}
+.about .glance li{margin-bottom:.6mm}
+.about .glance article>p{margin-top:1.2mm;font-size:8px;overflow-wrap:anywhere}
+.glance-call{background:linear-gradient(150deg,#123D69,#1F6FB2)!important;border-bottom:1.5mm solid #C99D54;justify-content:center;text-align:center;gap:1mm}
+.glance-call strong{font-size:11px}
+.glance-call b{font-size:24px;color:#F7C948}
+.glance-call span{font-size:9.5px;font-weight:700}
+.content>.flow{min-height:52mm}
+.journey h2{font-size:21px;margin:1mm 0 1.5mm}
+.journey .stats{margin:1mm 0 2mm}
+.journey .staff p{font-size:9.5px;margin:1.5mm 0 0}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:4mm;align-items:start}
+.two-col h3{margin-bottom:1mm}
+.two-col .steps{margin:1mm 0 2mm}
+.two-col .steps li{font-size:10.5px;padding:.6mm 0}
+.two-col .steps li::before{flex-basis:5.5mm;height:5.5mm;font-size:10px}
+.two-col p{font-size:10.5px}
+.catalogue .jewellery-grid{margin:1mm 0 2mm}
+.catalogue .jewellery-grid img{height:22mm}
+.catalogue .savings{margin:0;padding:3mm 3.5mm}
+.catalogue .savings h3{font-size:14px}
+.catalogue .vendor{margin:0;padding:3mm 4mm}
+.catalogue .vendor h2{font-size:20px;margin-bottom:1mm}
+.catalogue .vendor strong{font-size:22px}
+.course-row{display:grid;grid-template-columns:1fr 1fr;gap:4mm;align-items:center;margin:1mm 0}
+.course-row .course{margin:0}
+.course-row .offer{margin:0;padding:3mm}
+.course-row .offer strong{font-size:38px}
+.training .learn{margin:2mm 0}
+.facts{margin:1mm 0;padding-left:4mm;font-size:10.5px;line-height:1.45}
+.facts li{margin-bottom:1.2mm}
+.facts b{color:var(--a1)}
+.training .tamil{margin:1mm 0;font-size:10px;line-height:1.6}
+.training .cta-pair h2,.consult .cta-pair h2{font-size:21px;margin-bottom:1mm}
+.training .cta-pair p,.consult .cta-pair p{font-size:10.5px}
+.qr{flex-basis:29mm}
+.qr img{width:29mm;height:29mm}
+.software .features{margin:1mm 0 3mm;gap:1.6mm}
+.software .features span{font-size:10.5px;padding:1.8mm 2.5mm}
+.software .emi{margin:1.5mm 0 3mm}
+.software .emi strong{font-size:34px}
+.software .emi div{padding:2.5mm 1mm}
+.consult .business-photo{flex:1 0 30mm;margin:0 0 2mm}
+.consult .stats{margin:0 0 2mm}
+.consult .stats strong{font-size:22px}
+.services{list-style:none;counter-reset:s;padding:0;margin:0;display:grid;gap:1.6mm}
+.services li{counter-increment:s;display:grid;grid-template-columns:7mm 1fr;column-gap:2.5mm;padding:1.8mm 2.5mm;background:var(--soft);border-radius:2.5mm;font-size:9.8px;line-height:1.35}
+.services li::before{content:'0' counter(s);grid-row:1/3;font:700 18px/1 Cormorant,serif;color:#fff;background:linear-gradient(135deg,var(--a1),var(--a2));border-radius:2mm;display:flex;align-items:center;justify-content:center;height:7mm}
+.services b{color:var(--a1);font-size:11px}
+.founder-row{display:grid;grid-template-columns:30mm 1fr;gap:4mm;align-items:center}
+.founder-row img{width:30mm;height:31mm;object-fit:cover;border-radius:3mm;border-bottom:1.5mm solid var(--a2)}
+.founder-row h2{font-size:24px;margin-bottom:.5mm}
+.founder-row .role{font-size:9.5px;font-weight:800;color:var(--a1);margin-bottom:1.2mm}
+.founder-row p{font-size:10.3px;line-height:1.45;margin-bottom:0}
+.action-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2mm}
+.action-grid figure{margin:0;border-radius:2mm;overflow:hidden;background:var(--soft)}
+.action-grid img{display:block;width:100%;height:16mm;object-fit:cover}
+.action-grid figcaption{font-size:7.5px;font-weight:800;text-align:center;padding:.8mm;color:var(--a1)}
+.contact-qrs{grid-template-columns:repeat(3,1fr);gap:3mm;margin:3mm 0}
+.contact-qrs .qr{flex-basis:auto}
+.contact-qrs .qr img{width:28mm;height:28mm}
+.contact-qrs article:nth-child(5) .qr{--a1:#4A2A7A}
+.contact-qrs article:nth-child(6) .qr{--a1:#174A7E}
+.keyword-lines{line-height:1.6}
+.paper .content .enquiry{margin-top:2mm;padding:1.8mm 4.5mm}
+.enquiry a{font-size:16px}
+.about .band{margin-bottom:3mm}
+.about .lead{font-size:10.8px;margin-bottom:1.5mm}
+.about .glance{margin-top:0;gap:2mm}
+.about .glance article{padding:2.4mm 3mm}
+.about .glance-head{margin-bottom:1mm}
+.catalogue .band,.training .band,.software .band{margin-bottom:3mm}
+.catalogue .jewellery-grid img{height:20mm}
+.training .learn>div{padding:1.4mm 2.5mm}
+.software .features span{padding:1.5mm 2.5mm}
+.software .emi strong{font-size:30px}
+.training .facts{line-height:1.38}
+.training .facts li{margin-bottom:.8mm}
+.training .learn{margin:1.5mm 0;gap:1.5mm}
+.software .features{margin:0 0 2mm}
+.software .emi{margin:1mm 0 2mm}
+.software h3{margin-bottom:1mm}
