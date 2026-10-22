@@ -61,6 +61,76 @@ async function withGoogleTagManager(response, method) {
 }
 
 
+// The FAQ page (/faq): questions come from the GetJobMe bot answers guide
+// (Admin → WhatsApp Bot Answers) and are put into the page HTML here, so
+// search engines read them. Cached 2 minutes; if GetJobMe can't be reached,
+// the last copy is kept, or the page asks visitors to call.
+const faqApi = process.env.FAQ_API_URL || "http://127.0.0.1:5000/api/public/faq";
+const FAQ_CACHE_MS = 120000;
+let faqCache = { at: 0, groups: null };
+
+async function faqGroups() {
+  if (faqCache.groups && Date.now() - faqCache.at < FAQ_CACHE_MS) return faqCache.groups;
+  try {
+    const response = await fetch(faqApi, { signal: AbortSignal.timeout(3000) });
+    if (!response.ok) throw new Error(`FAQ API ${response.status}`);
+    const data = await response.json();
+    faqCache = { at: Date.now(), groups: Array.isArray(data.groups) ? data.groups : [] };
+  } catch (error) {
+    console.error("FAQ load failed:", error.message);
+    if (faqCache.groups) faqCache.at = Date.now() - FAQ_CACHE_MS + 30000;
+  }
+  return faqCache.groups;
+}
+
+const escapeHtml = value => String(value ?? "").replace(/[&<>"']/g, char => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[char]));
+
+// Escaped answer text with links for web addresses, emails and our phone numbers.
+function faqAnswerHtml(text) {
+  const link = /([\w.+-]+@[\w-]+(?:\.[\w-]+)+)|((?:https?:\/\/|www\.)[^\s<]+|(?:bigshopes\.com|getjobme\.com|cannyheads\.com|thangamalai\.me)(?:\/[^\s<]*)?)|(72008 24009|95009 36499)/g;
+  return escapeHtml(text)
+    .replace(/\*([^*\n]+)\*/g, "<strong>$1</strong>")
+    .replace(link, (all, email, url, phone) => {
+      if (email) return `<a href="mailto:${email}">${email}</a>`;
+      if (phone) return `<a href="tel:+91${phone.replace(" ", "")}">${phone}</a>`;
+      const [, address, end] = url.match(/^(.*?)([.,)]*)$/);
+      return `<a href="${address.startsWith("http") ? address : "https://" + address}">${address}</a>${end}`;
+    })
+    .replace(/\n/g, "<br>");
+}
+
+function renderFaq(groups) {
+  if (!groups?.length) {
+    return { body: '<p>Our questions and answers are being updated. Please call or WhatsApp <a href="tel:+917200824009">72008 24009</a>.</p>', schema: "" };
+  }
+  const filters = `<div class="filters" role="group" aria-label="Filter questions by business"><button type="button" data-faq-filter="" aria-pressed="true">All</button>${
+    groups.map(group => `<button type="button" data-faq-filter="${escapeHtml(group.business)}" aria-pressed="false">${escapeHtml(group.business)}</button>`).join("")}</div>`;
+  const body = filters + groups.map(group => `<div class="faq faq-group" data-faq-group="${escapeHtml(group.business)}"><h2>${escapeHtml(group.business)}</h2>${
+    group.items.map(item => `<details data-faq-item id="${escapeHtml(item.id)}"><summary>${escapeHtml(item.question)}</summary><p>${faqAnswerHtml(item.answer)}</p></details>`).join("")}</div>`).join("");
+  const schema = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: groups.flatMap(group => group.items.map(item => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: { "@type": "Answer", text: item.answer },
+    }))),
+  }).replace(/</g, "\\u003c");
+  return { body, schema: `<script type="application/ld+json">${schema}</script>` };
+}
+
+async function withFaq(response, method) {
+  if (method !== "GET" || !String(response.headers.get("content-type") || "").includes("text/html")) return response;
+  const html = await response.text();
+  const headers = new Headers(response.headers);
+  headers.delete("content-length");
+  if (!html.includes("<p>__FAQ_CONTENT__</p>")) return new Response(html, { status: response.status, statusText: response.statusText, headers });
+  const { body, schema } = renderFaq(await faqGroups());
+  const page = html.replace("<p>__FAQ_CONTENT__</p>", () => body).replace("</head>", () => `${schema}</head>`);
+  return new Response(page, { status: response.status, statusText: response.statusText, headers });
+}
+
+
 http.createServer(async(req,res)=>{try{
  if(!['GET','HEAD'].includes(req.method)){res.writeHead(405);return res.end();}
  const url=new URL(req.url,'http://localhost'),pathname=decodeURIComponent(url.pathname);
@@ -72,7 +142,7 @@ http.createServer(async(req,res)=>{try{
  let data;try{data=await fs.readFile(candidate);}catch{res.writeHead(404,{'Content-Type':'text/plain'});return res.end('Page not found');}
  const type=mime[path.extname(candidate)]||'application/octet-stream';
  let response=new Response(data,{headers:{'content-type':type,'X-Content-Type-Options':'nosniff','Cache-Control':type.startsWith('text/html')?'no-cache':'public,max-age=3600'}});
- response=await withGoldAppraiserLeadCapture(response,req.method);response=await withGoogleTagManager(response,req.method);
+ response=await withFaq(response,req.method);response=await withGoldAppraiserLeadCapture(response,req.method);response=await withGoogleTagManager(response,req.method);
  if(process.env.PREVIEW==='true'&&String(response.headers.get('content-type')).includes('text/html')&&process.env.CANNYHEADS_MOCK_FORM_TEST!=='true'){
    const notice='<aside style="padding:12px 5%;background:#174A7E;color:white;font:14px Arial" role="status">Private preview: training enquiry/payment submission is disabled. No real lead will be sent.</aside><script>document.addEventListener("submit",function(event){if(event.target.id==="gold-appraiser-lead-form"){event.preventDefault();event.stopImmediatePropagation();var status=event.target.querySelector(".gjm-lead-status");if(status)status.textContent="Preview only: no enquiry was sent. The preserved live form was tested separately with mocked responses.";}},true);document.addEventListener("click",function(event){if(event.target.closest(".gjm-booking-pay")){event.preventDefault();event.stopImmediatePropagation();}},true);</script>';
    response=new Response((await response.text()).replace(/<body([^>]*)>/i,'<body$1>'+notice),{status:response.status,headers:response.headers});
