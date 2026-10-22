@@ -105,8 +105,10 @@ function renderFaq(groups) {
   }
   const filters = `<div class="filters" role="group" aria-label="Filter questions by business"><button type="button" data-faq-filter="" aria-pressed="true">All</button>${
     groups.map(group => `<button type="button" data-faq-filter="${escapeHtml(group.business)}" aria-pressed="false">${escapeHtml(group.business)}</button>`).join("")}</div>`;
+  // Questions are numbered 1, 2, 3… down the whole page.
+  let number = 0;
   const body = filters + groups.map(group => `<div class="faq faq-group" data-faq-group="${escapeHtml(group.business)}"><h2>${escapeHtml(group.business)}</h2>${
-    group.items.map(item => `<details data-faq-item id="${escapeHtml(item.id)}"><summary>${escapeHtml(item.question)}</summary><p>${faqAnswerHtml(item.answer)}</p></details>`).join("")}</div>`).join("");
+    group.items.map(item => `<details data-faq-item id="${escapeHtml(item.id)}"><summary><span class="faq-number">${++number}.</span> ${escapeHtml(item.question)}</summary><p>${faqAnswerHtml(item.answer)}</p></details>`).join("")}</div>`).join("");
   const schema = JSON.stringify({
     "@context": "https://schema.org",
     "@type": "FAQPage",
