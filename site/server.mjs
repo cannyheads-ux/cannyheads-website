@@ -33,7 +33,7 @@ async function withGoldAppraiserLeadCapture(response, method) {
   ) return response;
 
   const html = await response.text();
-  const assets = '<link rel="stylesheet" href="/gold-appraiser-lead.css?v=20261020"><script defer src="/gold-appraiser-lead.js?v=20261022-course-format"></script>';
+  const assets = '<link rel="stylesheet" href="/gold-appraiser-lead.css?v=20261020"><script defer src="/gold-appraiser-lead.js?v=20261022-theory-centre"></script>';
   const body = html.includes("</body>") ? html.replace("</body>", `${assets}</body>`) : `${html}${assets}`;
   const headers = new Headers(response.headers);
   headers.delete("content-length");

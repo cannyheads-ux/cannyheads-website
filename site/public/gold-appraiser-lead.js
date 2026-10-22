@@ -19,8 +19,8 @@
           <h2>Become a Gold Appraiser in 7 days</h2>
           <p class="gjm-lead-tamil" lang="ta">7 நாளில் தங்க மதிப்பீட்டாளர் ஆகுங்கள் – அடுத்த Batch-ல் இடம் பெறுங்கள்.</p>
           <ul class="gjm-lead-chips">
-            <li>7 days at our Thanjavur centre</li>
-            <li>Outstation: theory online + 1 practical day in Thanjavur or your district</li>
+            <li>6 days theory at our Thanjavur centre, or online</li>
+            <li>1 day practical in Thanjavur or your district</li>
             <li>Certificate on completion</li>
             <li>Special offer ₹5,000 + GST</li>
             <li>Placement support through GetJobMe</li>
