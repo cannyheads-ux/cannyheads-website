@@ -112,6 +112,14 @@
     let activeLead = null;
     const params = new URLSearchParams(window.location.search);
     const value = (name) => params.get(name) || '';
+    // Enhanced conversions: plain values (Google hashes them); empty fields left out.
+    const userData = ({ mobileNo, fullName, city }) => {
+      const mobile = String(mobileNo || '').replace(/\D/g, '').slice(-10);
+      const [firstName = '', ...rest] = String(fullName || '').trim().split(/\s+/);
+      const address = { first_name: firstName, last_name: rest.join(' '), city: String(city || '').trim(), country: 'IN' };
+      Object.keys(address).forEach((key) => { if (!address[key]) delete address[key]; });
+      return { ...(mobile.length === 10 && { phone_number: `+91${mobile}` }), address };
+    };
 
     const loadRazorpay = () => new Promise((resolve, reject) => {
       if (window.Razorpay) return resolve();
@@ -173,7 +181,13 @@
               paymentStatus.textContent = verified.message || 'Payment successful. Your ₹999 booking advance is confirmed.';
               paymentButton.hidden = true;
               window.dataLayer = window.dataLayer || [];
-              window.dataLayer.push({ event: 'gold_appraiser_booking_paid', value: 999, currency: 'INR' });
+              window.dataLayer.push({
+                event: 'gold_appraiser_booking_paid',
+                value: 999,
+                currency: 'INR',
+                transaction_id: paymentResult.razorpay_payment_id,
+                user_data: userData(activeLead),
+              });
             } catch (error) {
               paymentStatus.className = 'gjm-payment-status is-error';
               paymentStatus.textContent = `${error.message}. If money was debited, our team will verify it from Razorpay.`;
@@ -243,6 +257,7 @@
           reference: body.reference,
           mobileNo: String(data.get('mobileNo') || ''),
           fullName: String(data.get('fullName') || ''),
+          city: String(data.get('currentLocation') || '').trim(),
         };
         paymentPanel.hidden = Boolean(body.bookingPaid);
         paymentButton.hidden = false;
@@ -257,7 +272,11 @@
           if (!body.bookingPaid) paymentButton.focus({ preventScroll: true });
         }, 100);
         window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({ event: 'gold_appraiser_lead_submitted', lead_source: value('utm_source') || 'website' });
+        window.dataLayer.push({
+          event: 'gold_appraiser_lead_submitted',
+          lead_source: value('utm_source') || 'website',
+          user_data: userData(activeLead),
+        });
       } catch (error) {
         status.className = 'gjm-lead-status is-error';
         status.textContent = error.message || 'Unable to submit your enquiry. Please try again.';
